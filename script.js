@@ -139,12 +139,14 @@ function removeItemFromLocalStorage(text) {
 }
 
 function removeAllItems() {
-  while (itemList.firstChild) {
-    itemList.removeChild(itemList.firstChild);
-  }
+  if (confirm('Are you sure?')) {
+    while (itemList.firstChild) {
+      itemList.removeChild(itemList.firstChild);
+    }
 
-  // Clear from local storage
-  localStorage.removeItem('items');
+    // Clear from local storage
+    localStorage.removeItem('items');
+  }
 
   // After removing all items, call resetUI function.
   resetUI();
